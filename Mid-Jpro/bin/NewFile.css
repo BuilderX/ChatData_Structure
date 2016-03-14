@@ -1,0 +1,12 @@
+@CHARSET "ISO-8859-1";
+
+@media (max-width: 700px) AND (min-width: 600px) AND(orientation:portrait){
+	body{
+			background:red;
+			
+	}
+	
+	
+}
+
+
