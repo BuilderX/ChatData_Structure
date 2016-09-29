@@ -33,21 +33,22 @@ public class Room {//extends RoomMethods implements Runnable{
 				   }
 				}
 		public Room (){
-			
-				userQueue = new UQueue();
-				User user = userQueue.dequeue();
-				int i = 0;
+			int i = 0;
 				
-				if(UQueue.getCount() > 7){
+			userQueue = new UQueue();
+			User user = userQueue.dequeue();
+				
+			if(UQueue.getCount() > 7){
 					
-				}else{
+			}else{
 					//userQueue.
-				while(UQueue.getCount() < 7){	
+				//createRoom(num);
+			while(UQueue.getCount() < 7){	
 						
-					User r = userQueue.getRoomContents()[i];
-					r.isConnected = true;
-					i++;//r.channel = 3030;
-					r.userActions();
+				User r = userQueue.getRoomContents()[i];
+				r.isConnected = true;
+				i++;//r.channel = 3030;
+				r.userActions();
 						}
 					
 				}
@@ -117,7 +118,11 @@ public class Room {//extends RoomMethods implements Runnable{
 					createRoom(7);
 					
 				}
-				public static void remove(User item) {
+				public static void remove(User item,i) {
+					
+					// Select Slot
+					// Mark Spot for next user 
+					// Next User who enters room takes this spot
 					
 					
 				}
