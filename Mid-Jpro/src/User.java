@@ -2,16 +2,17 @@
 import java.nio.channels.SocketChannel;
 
 class User implements UserCommands{
-			 		 String NickName ="";
-			 		  int id = 0;
-			 		 String userDescription;
-			 		 boolean isConnected = false;
-			 		 boolean isSpeaking = false;
-					 boolean isAdmin = false;
-					 boolean isPowerUser = false;
-					 boolean isTyping = false;
-					 SocketChannel channel;
-					 User use;
+	
+	String NickName ="";
+	int id = 0;
+	String userDescription;
+	boolean isConnected = false;
+	boolean isSpeaking = false;
+	boolean isAdmin = false;
+	boolean isPowerUser = false;
+	boolean isTyping = false;
+	SocketChannel channel;
+	User use;
 					 //FriendsList friendsList;
 					 
 					 public User(User use){
