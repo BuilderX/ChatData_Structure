@@ -6,7 +6,7 @@ public class RoomMapStorage {
 			WeakHashMap<Integer, Room> Web = null;
 			int currentPosition = 0;
 			{
-				//Syncronized (true){}
+			//Syncronized (true){}
 				}
 			{
 			 int count = 0;
