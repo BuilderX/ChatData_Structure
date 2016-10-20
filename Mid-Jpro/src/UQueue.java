@@ -4,10 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
-
 import javax.swing.text.html.CSS;
-
-
 import java.util.Collections;
 import java.util.EnumSet;
 import java.util.HashMap;
@@ -21,7 +18,6 @@ public class UQueue {
 	private User[] roomContents;
 	private static int count = 0;
 	
-
 	public UQueue(int size){
 		enqIndex = 0;
 		deqIndex = 0;
@@ -31,10 +27,7 @@ public class UQueue {
 		this(count);
 		enqIndex = 0;
 		deqIndex = 0;
-		
-	
 	}
-	
 	/**
 	 * @return the count
 	 */
@@ -45,13 +38,15 @@ public class UQueue {
 	 * @param count the count to set
 	 */
 	private static void setCount(int count) {
+	      if( count < 1){ return 0;}
 		UQueue.count = count;
 	
-}
+         }
 	
 	public void enqueue(User user){
-		if(count == getRoomContents().length){
-				return;
+		
+		if(getRoomContents().length < 0 || user == null){
+				return null;
 		}else{
 			getRoomContents()[enqIndex] = user;
 			enqIndex = ++enqIndex == getRoomContents().length ? 0: enqIndex;
@@ -74,13 +69,13 @@ public class UQueue {
 	
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-	//	example = example.roomContents;
+  	      //example = example.roomContents;
 		UQueue test = new UQueue(3);
+		
 		User jim = new User();
 		User Kim = new User();
 		User Bim = new User();
-		boolean h;
+		
 		test.enqueue(jim);
 		test.enqueue(Kim);
 		test.enqueue(Bim);
@@ -89,18 +84,19 @@ public class UQueue {
 		
 	@Override
 	public String toString(){
-			return Arrays.toString(getRoomContents());
+		return Arrays.toString(getRoomContents());
 		
 	}
 	private void getUserCount() {
 		for(User user: roomContents){
-			System.out.println(user);
+		     System.out.println(user);
 		}
 	}
 
 	public void print(String[] arr){
-		for(String Obj: arr){
-			System.out.println(Obj);
+		if(arr.length < 1 || arr == null){ return null}
+		for(String o: arr){
+		     System.out.println(o);
 		}
 		
 	}
@@ -129,23 +125,19 @@ public User[] getRoomContents() {
 	return roomContents;
 }
 public void setRoomContents(User[] roomContents) {
-	this.roomContents = roomContents;
+	if(roomContents == null || roomContents.length < 1){ return null;}
+	    this.roomContents = roomContents;
 }
+	
 /*enum Weekdays{
-		Monday,Tuesday,Wedensday
+	Monday,Tuesday,Wedensday
 }
-		 class daysoff{
-			 public daysoff(){
-				 Set<Weekdays> s = new TreeSet<>();
-				 s.add(Weekdays.Monday);
-				 System.out.print(s);
+	 class daysoff{
+		 public daysoff(){
+		 Set<Weekdays> s = new TreeSet<>();
+		 s.add(Weekdays.Monday);
+		 System.out.print(s);
 			 }
 			 
-*/			 
-		 
-		
-
-	
+*/			 	
 }
-	
-
