@@ -11,6 +11,7 @@ public class Room {//extends RoomMethods implements Runnable{
 			User[] bannedUsers;
 			Room room;
 			UQueue userQueue;
+	                int final maxUsers = 15;
 			//RoomMethods RMeth;
 			int numOfUsersInRoom = userQueue.getCount();
 			SocketChannel channel;
@@ -18,20 +19,19 @@ public class Room {//extends RoomMethods implements Runnable{
 			int currentRoom = 0;
 			
 		public Room(int port) {
-					
 			/*	super();
 				 if(channel.isConnected()){
 					createRoom(maxUsers);
 					int maxUsers
 				}*/
-				 try{
-					 sock = new Socket("host",port);
-					// new Thread(this).start();
-					 run();
+			try{
+			  sock = new Socket("host",port);
+			// new Thread(this).start();
+			  run();
 					 
-				 }catch(Exception e){
-				   }
-				}
+			 }catch(Exception e){
+		     }
+		 }
 		public Room (){
 			int i = 0;
 				
@@ -39,95 +39,76 @@ public class Room {//extends RoomMethods implements Runnable{
 			User user = userQueue.dequeue();
 				
 			if(UQueue.getCount() > 7){
-					
+		                       			
 			}else{
 					//userQueue.
 				//createRoom(num);
 			while(UQueue.getCount() < 7){	
-						
-				User r = userQueue.getRoomContents()[i];
-				r.isConnected = true;
-				i++;//r.channel = 3030;
-				r.userActions();
-						}
-					
-				}
-			
+			   User r = userQueue.getRoomContents()[i];
+			   r.isConnected = true;
+			   i++;//r.channel = 3030;
+			   r.userActions();
+				
+			}
+	       	    }
 		}
-		
-
 		public void createRoom(int MaxUsers){
-					 Room roomNode = new Room(3030);
-					
-					// roomNode.MaxSize = MaxUsers;
-					 roomNode.numOfUsersInRoom = 0;
-					 UQueue que = new UQueue(7);
-					 //roomNode.UserStorage = new HashMap<Integer, User>(MaxUsers);
-					 roomNode.bannedUsers = new User[15];
+			 if(MaxUsers > 10){ System.out.println('You need a premium account for this')}
+			 Room roomNode = new Room(3030);
+			// roomNode.MaxSize = MaxUsers;
+		         roomNode.numOfUsersInRoom = 0;
+			 UQueue que = new UQueue(MaxUsers);
+			 //roomNode.UserStorage = new HashMap<Integer, User>(MaxUsers);
+			 roomNode.bannedUsers = new User[maxUsers];
 			 
 				}
+		private int getNumOfUsersInRoom() {
+		         return numOfUsersInRoom;
+			        }
 
-
-
-				private int getNumOfUsersInRoom() {
-					return numOfUsersInRoom;
-				
+		private void setNumOfUsersInRoom(int numOfUsersInRoom) {
+		          this.numOfUsersInRoom = numOfUsersInRoom;
 				}
 
-				private void setNumOfUsersInRoom(int numOfUsersInRoom) {
-					this.numOfUsersInRoom = numOfUsersInRoom;
-			
+		private User[] getBannedUsers() {
+		         return bannedUsers;
 				}
 
-				private User[] getBannedUsers() {
-					return bannedUsers;
+		private void setBannedUsers(User[] bannedUsers) {
+		       	 this.bannedUsers = bannedUsers;
 				}
 
-				private void setBannedUsers(User[] bannedUsers) {
-					this.bannedUsers = bannedUsers;
+		private Room getRoom() {
+		         return room;
 				}
 
-				private Room getRoom() {
-					return room;
+		private void setRoom(Room room) {
+		  	 this.room = room;
 				}
 
-				private void setRoom(Room room) {
-					this.room = room;
+		private SocketChannel getChannel() {
+		 	 return channel;
 				}
 
-				private SocketChannel getChannel() {
-					return channel;
+		private void setChannel(SocketChannel channel) {
+			 this.channel = channel;
 				}
 
-				private void setChannel(SocketChannel channel) {
-					this.channel = channel;
+		private Socket getSock() {
+			 return sock;
 				}
 
-				private Socket getSock() {
-					return sock;
+		private void setSock(Socket sock) {
+			 this.sock = sock;
 				}
-
-				private void setSock(Socket sock) {
-					this.sock = sock;
+		//@Override
+		public void run() {
+			WeakReference<User> map;
+		        createRoom(7);
 				}
-
-				//@Override
-				public void run() {
-					WeakReference<User> map;
-					//
-					createRoom(7);
-					
-				}
-				public static void remove(User item,i) {
-					
-					// Select Slot
-					// Mark Spot for next user 
-					// Next User who enters room takes this spot
-					
-					
-				}
-				
-				
-			
-			
+		public static void remove(User item,i) {			
+		// Select Slot
+		// Mark Spot for next user 
+		// Next User who enters room takes this spot	
+		}			
 }
