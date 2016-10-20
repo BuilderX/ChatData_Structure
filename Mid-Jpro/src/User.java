@@ -15,32 +15,30 @@ class User implements UserCommands{
 	User use;
 					 //FriendsList friendsList;
 					 
-					 public User(User use){
-						 		use.getNickName();
-						 		use.getInfo();
-						 
-					 }
-					 
-			 		 public User(String nickName, int id, String userDescription,boolean PowerUser) {
-							NickName = nickName;
-							this.id = id;
-							this.userDescription = userDescription;
-							try {
-								channel.connect(null);
-								if(channel.isConnected()){
-									isConnected = true;
-									
-								}
-							} catch (Exception e) {
-								// TODO: handle exception
-							}
-							
-					}
-			 		 public User(){
-			 			 /* id++;
-			 			  this.NickName = "Demo";
-			 			 */ 
-			 		} 
+		 public User(User use){
+			use.getNickName();
+		        use.getInfo();
+		 }
+		 
+		 public User(String nickName, int id, String userDescription,boolean PowerUser) {
+			NickName = nickName;
+		        this.id = id;
+			this.userDescription = userDescription;
+			 try {
+			     channel.connect(null);
+			      if(channel.isConnected()){
+				 isConnected = true;
+			   
+			      }
+			      } catch (Exception e) {
+				// TODO: handle exception
+		       }
+		 }
+		  public User(){
+			 /* id++;
+		  this.NickName = "Demo";
+			 */ 
+	     } 
 			 		 public User userActions(){
 			 			 
 			 			 use.getNickName();
